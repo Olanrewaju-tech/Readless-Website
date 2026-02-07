@@ -77,6 +77,7 @@ export default function Pricing() {
                 $9.99
                 <span className="text-2xl font-normal">/month</span>
               </div>
+              <p className="text-brand-dark font-medium">30% off First 1000 Users</p>
               <p className="text-brand-dark font-medium">For serious learners</p>
             </div>
 
@@ -111,12 +112,12 @@ export default function Pricing() {
                 </svg>
                 <span className="text-brand-dark font-medium">Exclusive deep-dive content</span>
               </li>
-              <li className="flex items-start gap-3">
+              {/* <li className="flex items-start gap-3">
                 <svg className="w-6 h-6 text-brand-dark flex-shrink-0 mt-1" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" viewBox="0 0 24 24" stroke="currentColor">
                   <path d="M5 13l4 4L19 7"></path>
                 </svg>
                 <span className="text-brand-dark font-medium">Priority customer support</span>
-              </li>
+              </li> */}
             </ul>
 
             <button className="w-full bg-brand-dark text-white font-bold py-4 px-6 rounded-xl hover:bg-black transition-colors shadow-lg">
