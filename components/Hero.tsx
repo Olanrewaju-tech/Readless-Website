@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="relative bg-gradient-to-br from-brand-dark via-brand-darker to-black text-white py-16 px-4 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-brand-dark via-brand-darker to-black text-white py-12 sm:py-16 md:py-20 px-4 overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-64 h-64 bg-brand-yellow rounded-full filter blur-3xl"></div>
@@ -9,19 +9,19 @@ export default function Hero() {
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Main Heading */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-6 leading-tight">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4 sm:mb-6 leading-tight px-2">
           Understanding the human mind,
-          <span className="block text-brand-yellow">one chapter at a time</span>
+          <span className="block text-brand-yellow mt-2">one chapter at a time</span>
         </h1>
 
         {/* Subheading */}
-        <p className="text-xl md:text-2xl text-gray-300 text-center mb-12 max-w-3xl mx-auto">
+        <p className="text-lg sm:text-xl md:text-2xl text-gray-300 text-center mb-8 sm:mb-12 max-w-3xl mx-auto px-2">
           Book summaries that help you understand the human mind and improve your life. 
           Learn from psychology, business, philosophy, and more on the go.
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12 px-4">
           {/* App Store Button - Coming Soon */}
           <button 
             disabled
@@ -32,9 +32,9 @@ export default function Hero() {
             </svg>
             <div className="text-left">
               <div className="text-xs">Download on the</div>
-              <div className="text-lg font-bold">App Store</div>
+              <div className="text-base sm:text-lg font-bold">App Store</div>
             </div>
-            <span className="absolute -top-2 -right-2 bg-brand-yellow text-brand-dark text-xs font-bold px-3 py-1 rounded-full">
+            <span className="absolute -top-2 -right-2 bg-brand-yellow text-brand-dark text-xs font-bold px-2 sm:px-3 py-1 rounded-full">
               Coming Soon
             </span>
           </button>
@@ -49,9 +49,9 @@ export default function Hero() {
             </svg>
             <div className="text-left">
               <div className="text-xs">GET IT ON</div>
-              <div className="text-lg font-bold">Google Play</div>
+              <div className="text-base sm:text-lg font-bold">Google Play</div>
             </div>
-            <span className="absolute -top-2 -right-2 bg-brand-yellow text-brand-dark text-xs font-bold px-3 py-1 rounded-full">
+            <span className="absolute -top-2 -right-2 bg-brand-yellow text-brand-dark text-xs font-bold px-2 sm:px-3 py-1 rounded-full">
               Coming Soon
             </span>
           </button>

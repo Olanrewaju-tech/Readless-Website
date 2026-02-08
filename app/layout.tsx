@@ -1,4 +1,13 @@
 import './globals.css'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
+}
 
 export default function RootLayout({
   children,
@@ -7,6 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="theme-color" content="#F5B800" />
+      </head>
       <body>{children}</body>
     </html>
   )

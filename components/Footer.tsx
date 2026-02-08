@@ -2,32 +2,33 @@ import Image from 'next/image'
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-dark text-white py-12 px-4">
+    <footer className="bg-brand-dark text-white py-8 sm:py-12 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Main Footer Content */}
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
           {/* Brand Column */}
-          <div className="md:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
+          <div className="sm:col-span-2">
+            <div className="flex items-center gap-3 mb-3 sm:mb-4">
               <Image
                 src="/images/logo.png"
                 alt="Readless Logo"
-                width={100}
-                height={100}
+                width={80}
+                height={80}
+                className="w-20 h-20 sm:w-24 sm:h-24"
               />
             </div>
-            <p className="text-gray-400 mb-4 max-w-sm">
+            <p className="text-sm sm:text-base text-gray-400 mb-3 sm:mb-4 max-w-sm">
               Understanding the human mind, one chapter at a time. Book summaries that help you learn and grow.
             </p>
-            <p className="text-sm text-gray-500">
+            <p className="text-xs sm:text-sm text-gray-500">
               © 2026 Readless. All rights reserved.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-bold text-lg mb-4 text-brand-yellow">Quick Links</h3>
-            <ul className="space-y-2 text-gray-400">
+            <h3 className="font-bold text-base sm:text-lg mb-3 sm:mb-4 text-brand-yellow">Quick Links</h3>
+            <ul className="space-y-2 text-sm sm:text-base text-gray-400">
               <li><a href="#how-it-works" className="hover:text-brand-yellow transition-colors">How It Works</a></li>
               <li><a href="#features" className="hover:text-brand-yellow transition-colors">Features</a></li>
               <li><a href="#pricing" className="hover:text-brand-yellow transition-colors">Pricing</a></li>
@@ -37,8 +38,8 @@ export default function Footer() {
 
           {/* Contact & Social */}
           <div>
-            <h3 className="font-bold text-lg mb-4 text-brand-yellow">Connect</h3>
-            <ul className="space-y-3">
+            <h3 className="font-bold text-base sm:text-lg mb-3 sm:mb-4 text-brand-yellow">Connect</h3>
+            <ul className="space-y-2 sm:space-y-3">
               {/* Email */}
               <li>
                 <a 
@@ -48,7 +49,7 @@ export default function Footer() {
                   <svg className="w-5 h-5" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
                     <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                   </svg>
-                  <span className="group-hover:underline">info@getreadless.tech</span>
+                  <span className="group-hover:underline break-all">info@getreadless.tech</span>
                 </a>
               </li>
 
@@ -68,16 +69,16 @@ export default function Footer() {
               </li>
 
               {/* Twitter - Coming Soon */}
-              <li className="flex items-center gap-2 text-gray-600 cursor-not-allowed">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <li className="flex items-center gap-2 text-sm sm:text-base text-gray-600 cursor-not-allowed">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                 </svg>
                 <span>Twitter (Coming Soon)</span>
               </li>
 
               {/* Instagram - Coming Soon */}
-              <li className="flex items-center gap-2 text-gray-600 cursor-not-allowed">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <li className="flex items-center gap-2 text-sm sm:text-base text-gray-600 cursor-not-allowed">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
                 </svg>
                 <span>Instagram (Coming Soon)</span>
@@ -87,9 +88,13 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-700 pt-8">
-          <div className="text-center text-sm text-gray-500">
-            <p>Made with ❤️ for curious minds everywhere</p>
+        <div className="border-t border-gray-700 pt-6 sm:pt-8">
+          <div className="text-center text-xs sm:text-sm text-gray-500 flex items-center justify-center gap-2">
+            <span>Made with</span>
+            <svg className="w-4 h-4 text-red-500 inline-block" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+            </svg>
+            <span>for curious minds everywhere</span>
           </div>
         </div>
       </div>
