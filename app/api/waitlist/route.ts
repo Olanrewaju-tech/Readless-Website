@@ -25,7 +25,7 @@ export async function POST(request: Request) {
 
     // Send welcome email
     await resend.emails.send({
-      from: 'Readless <hello@getreadless.tech>', // Change this to your domain
+      from: 'Readless <info@getreadless.tech>', // Change this to your domain
       to: email,
       subject: "You're in Welcome to Readless!",
       html: `

@@ -15,7 +15,7 @@ export default function Navigation() {
   ]
 
   return (
-    <nav className="sticky top-0 z-50 bg-brand-dark/95 backdrop-blur-sm border-b border-gray-800">
+    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -35,7 +35,7 @@ export default function Navigation() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-gray-300 hover:text-brand-yellow transition-colors font-medium"
+                className="text-brand-dark hover:text-brand-yellow transition-colors font-medium"
               >
                 {link.label}
               </a>
@@ -53,7 +53,7 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-white p-2"
+            className="md:hidden text-brand-dark p-2"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? (
@@ -70,12 +70,12 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-800">
+          <div className="md:hidden py-4 border-t border-gray-200">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="block py-3 text-gray-300 hover:text-brand-yellow transition-colors font-medium"
+                className="block py-3 text-brand-dark hover:text-brand-yellow transition-colors font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}
