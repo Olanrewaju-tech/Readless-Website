@@ -28,7 +28,7 @@ export default function Waitlist() {
       if (!response.ok) throw new Error('Failed to join waitlist');
 
       setStatus('success')
-      setMessage('🎉 You\'re on the list! We\'ll notify you when we launch.')
+      setMessage('We\'ll notify you when we launch.')
       setEmail('')
 
       // Reset after 5 seconds
