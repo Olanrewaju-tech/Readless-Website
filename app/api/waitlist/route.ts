@@ -23,7 +23,7 @@ export async function POST(request: Request) {
       ON CONFLICT (email) DO NOTHING;
     `;
 
-    // Send welcome email
+    // Send welcome email to user
     await resend.emails.send({
       from: 'Readless <info@getreadless.tech>', // Change this to your domain
       to: email,
@@ -89,6 +89,46 @@ export async function POST(request: Request) {
         </html>
       `
     });
+
+    // Send notification email to admin
+    if (process.env.ADMIN_EMAIL) {
+      await resend.emails.send({
+        from: 'Readless <info@getreadless.tech>',
+        to: process.env.ADMIN_EMAIL,
+        subject: '🎉 New Waitlist Signup!',
+        html: `
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          </head>
+          <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #f5f5f5;">
+            <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; padding: 40px 30px;">
+              <h1 style="color: #2C3135; margin: 0 0 20px; font-size: 24px;">New Waitlist Signup</h1>
+              
+              <div style="background-color: #FFF9E6; border-left: 4px solid #F5B800; padding: 20px; margin: 20px 0;">
+                <p style="color: #2C3135; font-size: 16px; margin: 0;">
+                  <strong>Email:</strong> ${email}
+                </p>
+                <p style="color: #666; font-size: 14px; margin: 10px 0 0;">
+                  Registered at: ${new Date().toLocaleString('en-US', { 
+                    dateStyle: 'full', 
+                    timeStyle: 'short',
+                    timeZone: 'UTC'
+                  })} UTC
+                </p>
+              </div>
+              
+              <p style="color: #666; font-size: 14px; margin-top: 30px;">
+                This notification was sent from your Readless waitlist.
+              </p>
+            </div>
+          </body>
+          </html>
+        `
+      });
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
