@@ -112,7 +112,7 @@ export default function Categories() {
         {/* Stats */}
         <div className="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
           <div className="text-center">
-y            <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-yellow mb-1 sm:mb-2">100+</div>
+            <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-yellow mb-1 sm:mb-2">100+</div>
             <div className="text-xs sm:text-sm md:text-base text-gray-600 font-medium">Book Summaries</div>
           </div>
           <div className="text-center">
