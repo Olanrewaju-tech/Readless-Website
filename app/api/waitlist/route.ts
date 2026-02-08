@@ -2,8 +2,6 @@ import { NextResponse } from 'next/server';
 import { sql } from '@vercel/postgres';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: Request) {
   try {
     const { email } = await request.json();
@@ -24,6 +22,9 @@ export async function POST(request: Request) {
         { status: 500 }
       );
     }
+
+    // Initialize Resend client
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     // Save to database
     await sql`
