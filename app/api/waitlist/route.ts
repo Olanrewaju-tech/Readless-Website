@@ -16,6 +16,15 @@ export async function POST(request: Request) {
       );
     }
 
+    // Check if Resend API key is configured
+    if (!process.env.RESEND_API_KEY) {
+      console.error('RESEND_API_KEY is not configured');
+      return NextResponse.json(
+        { error: 'Email service not configured' },
+        { status: 500 }
+      );
+    }
+
     // Save to database
     await sql`
       INSERT INTO waitlist (email)
@@ -24,8 +33,9 @@ export async function POST(request: Request) {
     `;
 
     // Send welcome email to user
-    await resend.emails.send({
-      from: 'Readless <info@getreadless.tech>', // Change this to your domain
+    try {
+      const result = await resend.emails.send({
+        from: 'Readless <info@getreadless.tech>',
       to: email,
       subject: "You're in Welcome to Readless!",
       html: `
@@ -39,8 +49,8 @@ export async function POST(request: Request) {
           <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff;">
             <!-- Header with Logo -->
             <div style="background: linear-gradient(135deg, #2C3135 0%, #1A1D21 100%); padding: 40px 20px; text-align: center;">
-              <img src="https://getreadless.tech/images/logo.png" alt="Readless Logo" style="width: 80px; height: 80px; margin-bottom: 20px;">
-              <h1 style="color: #F5B800; margin: 0; font-size: 28px; font-weight: bold;">You're in.</h1>
+              <img src="https://getreadless.tech/images/logo.png" alt="Readless Logo" style="width: 100px; height: 100px; margin-bottom: 20px;">
+              <h1 style="color: #F5B800; margin: 0; font-size: 28px; font-weight: bold;"></h1>
             </div>
             
             <!-- Main Content -->
@@ -88,12 +98,18 @@ export async function POST(request: Request) {
         </body>
         </html>
       `
-    });
+      });
+      console.log('Welcome email sent successfully:', result);
+    } catch (emailError: any) {
+      console.error('Failed to send welcome email:', emailError);
+      // Don't fail the request if email fails
+    }
 
     // Send notification email to admin
     if (process.env.ADMIN_EMAIL) {
-      await resend.emails.send({
-        from: 'Readless <info@getreadless.tech>',
+      try {
+        const adminResult = await resend.emails.send({
+          from: 'Readless <info@getreadless.tech>',
         to: process.env.ADMIN_EMAIL,
         subject: '🎉 New Waitlist Signup!',
         html: `
@@ -127,7 +143,14 @@ export async function POST(request: Request) {
           </body>
           </html>
         `
-      });
+        });
+        console.log('Admin notification sent successfully:', adminResult);
+      } catch (adminEmailError: any) {
+        console.error('Failed to send admin notification:', adminEmailError);
+        // Don't fail the request if admin email fails
+      }
+    } else {
+      console.log('ADMIN_EMAIL not configured, skipping admin notification');
     }
 
     return NextResponse.json({ success: true });
